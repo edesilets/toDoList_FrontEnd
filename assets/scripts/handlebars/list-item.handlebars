@@ -1,9 +1,16 @@
 <div>
+    {{!--this references the container of items  --}}
     {{#each this}}
         <div class="row">
             <div class="col-md-12">
-                <h2>{{fuck}}</h2>
+                this.items list all the objects in one string.
+                <h2>{{this.items}}</h2>
+
+                h2 does not appear because 'this' doesnot have access to todo.
+                <h2>{{this.todo}}</h2>
+                    {{!-- refers to items allows for subselections --}}
                     {{#items}}
+                        {{!-- this refs items. So this.todo grabs items.todo --}}
                         <p>{{this.todo}}</p>
                     {{/items}}
             </div>
@@ -11,3 +18,15 @@
     {{/each}}
         <p>There are no documents available at this time</p>
 </div>
+
+<h1>Different way of going through json.</h1>
+
+{{#each data}}
+  <div class="row">
+    <div class="col-md-12">
+      {{#each this}}
+        <p>{{todo}}</p>
+      {{/each}}
+    </div>
+  </div>
+{{/each}}
