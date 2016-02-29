@@ -104,6 +104,24 @@ let dynData = {
   ]
 };
 
+
+let objData = {
+"users":
+  {
+    "id": 2,
+    "email": "jake@state.farm",
+    "lists": {
+        "category": "HomeInsurance",
+        "items": {
+            "todo13": "flood insurance for mr jackson",
+            "todo14": "fire insurance",
+            "todo15": "natual deaster",
+            "todo16": "this coverage rate."
+          }
+      }
+}};
+
 module.exports = {
-  dynData
+  dynData,
+  objData
 };
