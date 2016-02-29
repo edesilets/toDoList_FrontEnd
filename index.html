@@ -6,15 +6,41 @@
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+    <body>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Welcome to Tick Tac Toe!</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav navbar-right">
+              <button type="button" data-toggle="modal" data-target="#myModalRegister" class="btn btn-primary">Register</button>
+              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Login</button>
+              <div class="btn-group" role="group" aria-label="groung">
+                <form id="logOut">
+                  <button type="submit" id="submit" data-toggle="modal" class="btn btn-primary">Logout</button>
+                </form>
+              </div>
+              <button type="button" data-toggle="modal" data-target="#myModalChangePassword" class="btn btn-primary">Change Password</button>
+            </ul>
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <h1 class="dog"></h1>
+
+      <div class="listwrapper">
+        <div class="listname"></div>
+        <div class="listbox">
+          <div class="item"></div>
+        </div>
+      </div>
+      <div class="newitem">
+        <form class="" action="index.html" method="post">
+          <button type="button" name="button">new item</button>
+        </form>
+      </div>
     </body>
 </html>
