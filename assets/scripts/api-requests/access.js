@@ -74,10 +74,30 @@ let logOut = function(event) {
   });
 };
 
+let chPass = function(event) {
+  event.preventDefault();                   // Stops page Reload
+  let item = new FormData(event.target);    // object containing the FormData
+  $.ajax({
+    url: env.envVars.url + 'change-password/' + env.envVars.user.user.id,
+    type: 'PATCH',
+    headers: {
+        Authorization: 'Token token=' + env.envVars.user.user.token,
+      },
+    contentType: false,                     // Needed for FormData
+    processData: false,                     // Needed for FormData This is because item
+    data: item                              // item is referancing the new object called 'item'.
+  })
+  .done(function (data) {
+    successMessage(data);
+  })
+  .fail(function (data) {
+    failMessage(data);
+  });
+};
 
 module.exports = {
   signUp,
   logIn,
   logOut,
-  // chPass,
+  chPass,
 };
