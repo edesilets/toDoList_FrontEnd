@@ -7,9 +7,6 @@ const access = require('./api-requests/access.js');
 let navbarTemplate = require('./handlebars/navbar.handlebars');
 
 $( document ).ready(function() {
-  $('.listname').text('List Name!');
-  $('.listbox').text('listbox');
-  $('.item').text('listsbox');
   $('.navbar').append(navbarTemplate());
 });
 
