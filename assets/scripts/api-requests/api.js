@@ -1,127 +1,37 @@
-'use strict';
+'use strict'
 
-let dynData = {
-  "users": [
-    {
-      "id": 2,
-      "email": "jake@state.farm",
-      "lists": [
-        {
-          "id": 7,
-          "category": "HomeInsurance",
-          "items": [
-            {
-              "id": 13,
-              "todo": "flood insurance for mr jackson"
-            },
-            {
-              "id": 14,
-              "todo": "fire insurance"
-            },
-            {
-              "id": 15,
-              "todo": "natual deaster"
-            },
-            {
-              "id": 16,
-              "todo": "this coverage rate."
-            }
-          ]
-        },
-        {
-          "id": 8,
-          "category": "Lunch orders",
-          "items": [
-            {
-              "id": 17,
-              "todo": "Janis want's Cheeze Pizza"
-            },
-            {
-              "id": 18,
-              "todo": "Otter: steamed fish"
-            },
-            {
-              "id": 19,
-              "todo": "Kate chicken salad"
-            },
-            {
-              "id": 20,
-              "todo": "eric grilled cheese"
-            }
-          ]
-        }
-      ]
+let getItems = function () {
+  $.ajax({
+    url: "http://localhost:3000/items",
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=7afe163c52a8ad3381dae7008f56fb6f',
     },
-    {
-      "id": 3,
-      "email": "Kate@state.farm",
-      "lists": []
+    dataType: 'json'
+  }).done(function(data) {
+    let template = require('../handlebars/list-item.handlebars');
+    $('.dog').append(template({data}));
+    console.log(data);
+  });
+};
+
+let getLists = function () {
+  $.ajax({
+    url: "http://localhost:3000/lists",
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=7afe163c52a8ad3381dae7008f56fb6f',
     },
-    {
-      "id": 1,
-      "email": "becca@state.farm",
-      "lists": [
-        {
-          "id": 3,
-          "category": "Groceries",
-          "items": [
-            {
-              "id": 9,
-              "todo": "Olives"
-            },
-            {
-              "id": 10,
-              "todo": "lettuce"
-            }
-          ]
-        },
-        {
-          "id": 4,
-          "category": "Beach Supplies",
-          "items": [
-            {
-              "id": 11,
-              "todo": "Chairs"
-            },
-            {
-              "id": 12,
-              "todo": "sunscreen"
-            }
-          ]
-        },
-        {
-          "id": 5,
-          "category": "Automobiles",
-          "items": []
-        },
-        {
-          "id": 6,
-          "category": "todo at home",
-          "items": []
-        }
-      ]
-    }
-  ]
+    dataType: 'json'
+  }).done(function(data) {
+    let listsTemplate = require('../handlebars/list-wrapper.handlebars');
+    $('.listwrapper').append(listsTemplate({data}));
+    console.log(data);
+  });
 };
 
 
-let objData = {
-"users":
-  {
-    "id": 2,
-    "email": "jake@state.farm",
-    "lists": {
-        "category": "HomeInsurance",
-        "items": {
-            "todo13": "flood insurance for mr jackson",
-            "todo14": "fire insurance",
-            "todo15": "natual deaster",
-            "todo16": "this coverage rate."
-          }
-      }
-}};
 
 module.exports = {
-  dynData,
-  objData
+
 };
