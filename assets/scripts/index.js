@@ -8,20 +8,8 @@ require('./example.js');
 let access = require('./api-requests/access.js');
 
 let init = function() {
-  $('.game-page').hide();
+  //$('.listwrapper').hide();
   $('#register').on('submit', access.signUp);
-    //function () {
-    // let passFail = access.signUp;
-    // console.log(passFail);
-    // if (passFail) {
-    //   // close modal
-    //   //congrats on access
-    //   console.log("congrats you register sucess full");
-    // } else {
-    //   // red text says fails : user exists Try again.
-    //   console.log("user exists");
-    // }
-    //});
   $('#logIn').on('submit', access.logIn);
   $('#logOut').on('submit', access.logOut);
   $('#changePw').on('submit', access.chPass);
