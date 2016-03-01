@@ -1,18 +1,20 @@
 'use strict';
 
-// user require with a reference to bundle the file and use it in this file
-// var example = require('./example');
-
-// use require without a reference to ensure a file is bundled
 require('./example.js');
 let access = require('./api-requests/access.js');
 
+// handlebars template require below
+let navbarTemplate = require('./handlebars/navbar.handlebars');
+
 let init = function() {
-  //$('.listwrapper').hide();
+  // Main Functionaliy
+  $('.navbar').append(navbarTemplate());
   $('#register').on('submit', access.signUp);
   $('#logIn').on('submit', access.logIn);
   $('#logOut').on('submit', access.logOut);
   $('#changePw').on('submit', access.chPass);
+  // Other functions below
+
 };
 
 $(document).ready(init);
