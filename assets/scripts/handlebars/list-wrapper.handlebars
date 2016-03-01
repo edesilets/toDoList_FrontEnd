@@ -1,33 +1,29 @@
 <div class="listname form-group">
-  <label for="sel1">Select list:</label>
-  <select class="form-control" id="sel1">
-    {{#data}}
-      {{#lists}}
+  <label for="sel-list">Select list:</label>
+  <select class="form-control" id="sel-list">
+    {{#data.lists}}
         <option>{{this.category}}</option>
-      {{/lists}}
-    {{/data}}
+    {{/data.lists}}
   </select>
 </div>
 
 <div class="list-group listbox">
   <div class="item">
-    {{#data}}
-      {{#lists}}
-        {{#items}}
-          <a href="#" class="list-group-item">{{this.todo}}</a>
-        {{/items}}
-      {{/lists}}
-    {{/data}}
+    {{#data.lists}}
+      {{#items}}
+        <a href="#" class="list-group-item">{{this.todo}}</a>
+      {{/items}}
+    {{/data.lists}}
 </div>
 
 <div class="row">
   <div class="col-md-1"><!-- Space Saver --></div>
   <div class="col-md-10 newitem">
     <form class="form-inline">
-      <div class="form-group">
-        <input type="password" class="col-md-11 form-control" id="exampleInputPassword3" placeholder="Password">
-        <button type="submit" class="col-md-3 btn btn-primary btn-md">save/update</button>
+      <div class="col-md-9 form-group">
+        <input type="input" class="form-control" id="item" placeholder="Create/Remove/update an item in your list">
       </div>
+      <button type="submit" class="col-md-3 btn btn-primary btn-md">save/update/delete</button>
     </form>
   </div>
   <div class="col-md-1"><!-- Space Saver --></div>
