@@ -22,7 +22,7 @@ let init = function() {
     //   console.log("user exists");
     // }
     //});
-  // $('#logIn').on('submit', access.logIn);
+  $('#logIn').on('submit', access.logIn);
   // $('#logOut').on('submit', access.logOut);
   // $('#changePw').on('submit', access.chPass);
 };
