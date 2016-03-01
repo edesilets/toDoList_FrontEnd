@@ -1,6 +1,7 @@
 'use strict';
 // Require js files below
 const env = require('../env.js');
+let uiSign = require('../ui/sign.js');
 
 const successMessage = function (data) {
   console.log(data);
@@ -10,7 +11,6 @@ const failMessage = function (data) {
 };
 
 let signUp = function(event) {
-  let signup = null;
   event.preventDefault();                   // Stops page Reload
   let item = new FormData(event.target);    // object containing the FormData
   $.ajax({
@@ -23,13 +23,10 @@ let signUp = function(event) {
   .done(function (data) {
     successMessage(data);
     env.envVars.user = data;
-    signup = true;
   })
   .fail(function (data) {
     failMessage(data);
-    signup = false;
   });
-  return signup;
 };
 
 let logIn = function(event) {
