@@ -7,14 +7,12 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Welcome to Tick Tac Toe!</a>
+            <a class="navbar-brand" href="#">Welcome to ToDo's!</a>
           </div>
-
           <!-- Collect the nav links, forms, and other content for toggling -->
             <ul class="nav navbar-nav navbar-right">
               <button type="button" data-toggle="modal" data-target="#myModalRegister" class="btn btn-primary">Register</button>
@@ -26,21 +24,14 @@
               </div>
               <button type="button" data-toggle="modal" data-target="#myModalChangePassword" class="btn btn-primary">Change Password</button>
             </ul>
-        </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
       </nav>
 
-      <h1 class="dog"></h1>
-
-      <div class="listwrapper">
-        <div class="listname"></div>
-        <div class="listbox">
-          <div class="item"></div>
-        </div>
-      </div>
-      <div class="newitem">
-        <form class="" action="index.html" method="post">
-          <button type="button" name="button">new item</button>
-        </form>
+      <div class="row">
+        <div class="col-md-3"><!-- Space Saver --></div>
+        <div class="col-md-6 listwrapper"><!-- Rendered by list-wrapper.handlebars --></div>
+        <div class="col-md-3"></div>
       </div>
     </body>
 </html>
