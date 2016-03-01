@@ -3,6 +3,7 @@
 const api = require('./api-requests/api.js');
 
 // Require handlebars files below
+let navbarTemplate = require('./handlebars/navbar.handlebars');
 
 $( document ).ready(function() {
   $('.listname').text('List Name!');
@@ -10,6 +11,7 @@ $( document ).ready(function() {
   $('.item').text('listsbox');
   //getItems();
   getLists();
+  $('.navbar').append(navbarTemplate());
 
   // user require with a reference to bundle the file and use it in this file
   // let example = require('./example');
