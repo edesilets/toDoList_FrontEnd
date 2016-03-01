@@ -32,9 +32,29 @@ let signUp = function(event) {
   return signup;
 };
 
+let logIn = function(event) {
+  event.preventDefault();                   // Stops page Reload
+  let item = new FormData(event.target);    // object containing the FormData
+  $.ajax({
+    url: env.envVars.url + 'sign-in',
+    type: 'POST',
+    contentType: false,                     // Needed for FormData
+    processData: false,                     // Needed for FormData This is because item
+    data: item                              // item is referancing the new object called 'item'.
+  })
+  .done(function (data) {
+    successMessage(data);
+    env.envVars.user = data;
+    console.log(env.envVars);
+  })
+  .fail(function (data) {
+    failMessage(data);
+  });
+};
+
 module.exports = {
   signUp,
-  // logIn,
+  logIn,
   // logOut,
   // chPass,
 };
