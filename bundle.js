@@ -200,7 +200,7 @@ webpackJsonp([0],[
 
 	var getLists = function getLists() {
 	  $.ajax({
-	    url: "http://localhost:3000/lists",
+	    url: env.envVars.url + "lists",
 	    method: 'GET',
 	    headers: {
 	      Authorization: 'Token token=' + env.envVars.user.user.token
@@ -244,7 +244,7 @@ webpackJsonp([0],[
 	  return "<div class=\"listname form-group\">\n  <label for=\"sel-list\">Select list:</label>\n  <select class=\"form-control\" id=\"sel-list\">\n"
 	    + ((stack1 = alias2.call(depth0,alias1(((stack1 = (depth0 != null ? depth0.lists : depth0)) != null ? stack1.lists : stack1), depth0),{"name":"lists.lists","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "  </select>\n</div>\n\n<div class=\"list-group listbox\">\n  <div class=\"item\">\n"
-	    + ((stack1 = alias2.call(depth0,alias1(((stack1 = (depth0 != null ? depth0.data : depth0)) != null ? stack1.lists : stack1), depth0),{"name":"data.lists","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = alias2.call(depth0,alias1(((stack1 = (depth0 != null ? depth0.lists : depth0)) != null ? stack1.lists : stack1), depth0),{"name":"lists.lists","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "</div>\n\n<div class=\"row\">\n  <div class=\"col-md-1\"><!-- Space Saver --></div>\n  <div class=\"col-md-10 newitem\">\n    <form class=\"form-inline\">\n      <div class=\"col-md-9 form-group\">\n        <input type=\"input\" class=\"form-control\" id=\"item\" placeholder=\"Create/Remove/update an item in your list\">\n      </div>\n      <button type=\"submit\" class=\"col-md-3 btn btn-primary btn-md\">save/update/delete</button>\n    </form>\n  </div>\n  <div class=\"col-md-1\"><!-- Space Saver --></div>\n</div>\n";
 	},"useData":true});
 
