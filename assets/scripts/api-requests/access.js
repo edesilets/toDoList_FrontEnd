@@ -29,7 +29,7 @@ let signUp = function(event) {
   });
 };
 
-let logIn = function(event) {
+let signIn = function(event) {
   event.preventDefault();                   // Stops page Reload
   let item = new FormData(event.target);    // object containing the FormData
   $.ajax({
@@ -40,16 +40,14 @@ let logIn = function(event) {
     data: item                              // item is referancing the new object called 'item'.
   })
   .done(function (data) {
-    successMessage(data);
-    env.envVars.user = data;
-    console.log(env.envVars);
+    uiSign.inSuccessful(data);
   })
   .fail(function (data) {
     failMessage(data);
   });
 };
 
-let logOut = function(event) {
+let signOut = function(event) {
   event.preventDefault();                // Stops page Reload
   $.ajax({
     url: env.envVars.url + 'sign-out/' + env.envVars.user.user.id,
@@ -89,7 +87,7 @@ let chPass = function(event) {
 
 module.exports = {
   signUp,
-  logIn,
-  logOut,
+  signIn,
+  signOut,
   chPass,
 };
