@@ -1,7 +1,7 @@
 'use strict';
 
 let envVars = {
-  'url':'http://localhost:3000/'
+  'url':'https://todo-list-90562.herokuapp.com/'
 };
 
 module.exports = {
