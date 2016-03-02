@@ -28,11 +28,13 @@
 ## Frontend
 
 [Frontend Repository](https://github.com/erdesi90562/toDoList_FrontEnd)
+
 [Deployed App](http://erdesi90562.github.io/toDoList_FrontEnd)
 
 ## Backend
 
 [Backend Repository](https://github.com/erdesi90562/toDoList_Backend)
+
 [Deployed API](https://todo-list-90562.herokuapp.com/)
 
 ## WireFrame
