@@ -2,6 +2,7 @@
 // Require js files below
 const env = require('../env.js');
 let uiSign = require('../ui/sign.js');
+let logicSign = require('../logic/sign.js');
 
 const successMessage = function (data) {
   console.log(data);
@@ -40,10 +41,12 @@ let signIn = function(event) {
     data: item                              // item is referancing the new object called 'item'.
   })
   .done(function (data) {
-    uiSign.inSuccessful(data);
+    uiSign.inSuccessful();
+    logicSign.inSuccessful(data);
   })
   .fail(function (data) {
     failMessage(data);
+    uiSign.inFail();
   });
 };
 
