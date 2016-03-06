@@ -1,20 +1,20 @@
-'use strict'
+'use strict';
 const env = require('../env.js');
 
-// let getItems = function () {
-//   $.ajax({
-//     url: "http://localhost:3000/items",
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token='+ env.envVars.user.user.token,
-//     },
-//     dataType: 'json'
-//   }).done(function(data) {
-//     let template = require('../handlebars/list-item.handlebars');
-//     $('.dog').append(template({data}));
-//     console.log(data);
-//   });
-// };
+let getItems = function (id) {
+  $.ajax({
+    url: env.envVars.url + "/lists/" + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token='+ env.envVars.user.user.token,
+    },
+    dataType: 'json'
+  }).done(function(items) {
+    let listsTemplate = require('../handlebars/list-wrapper.handlebars');
+    $('.listwrapper').append(listsTemplate({items}));
+    console.log('get the list', items);
+  });
+};
 
 let getLists = function () {
   $.ajax({
@@ -32,5 +32,6 @@ let getLists = function () {
 };
 
 module.exports = {
-  getLists
+  getLists,
+  getItems
 };
