@@ -2,6 +2,7 @@
 
 require('./example.js');
 let access = require('./api-requests/access.js');
+let test = require('./ui/actions.js');
 
 // handlebars template require below
 let navbarTemplate = require('./handlebars/navbar.handlebars');
@@ -14,6 +15,7 @@ let init = function() {
   $('#logOut').on('submit', access.signOut);
   $('#changePw').on('submit', access.chPass);
   // Other functions below
+  test.grabListId();
 };
 
 $(document).ready(init);

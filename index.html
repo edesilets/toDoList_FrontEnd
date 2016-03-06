@@ -8,11 +8,39 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-default"><!-- Rendered by list-wrapper.handlebars --></nav>
+    <nav class="navbar navbar-default"><!-- Rendered by navbar.handlebars --></nav>
 
     <div class="row">
       <div class="col-md-3"><!-- Space Saver --></div>
-      <div class="col-md-6 listwrapper"><!-- Rendered by list-wrapper.handlebars --></div>
+      <div class="col-md-6 listwrapper">
+
+        <div class="listname form-group">
+          <label for="sel-list">Select list:</label>
+          <select class="form-control" id="sel-list">
+            <!-- Rendered by lists.handlebars -->
+          </select>
+        </div>
+
+        <div class="list-group listbox">
+          <div class="items">
+            <!-- Rendered by items.handlebars -->
+        </div>
+
+        <div class="row">
+          <div class="col-md-1"><!-- Space Saver --></div>
+          <div class="col-md-10 newitem">
+            <form class="form-inline">
+              <div class="col-md-9 form-group">
+                <input type="input" class="form-control" id="item" placeholder="Create/Remove/update an item in your list">
+              </div>
+              <button type="submit" class="col-md-3 btn btn-primary btn-md">save/update/delete</button>
+            </form>
+          </div>
+          <div class="col-md-1"><!-- Space Saver --></div>
+        </div>
+
+
+      </div>
       <div class="col-md-3"></div>
     </div>
 
