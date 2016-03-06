@@ -2,10 +2,11 @@
 // Require js files below
 const env = require('../env.js');
 let uiSign = require('../ui/sign.js');
+let logicSign = require('../logic/sign.js');
 
 const successMessage = function (data) {
   console.log(data);
-}
+};
 const failMessage = function (data) {
   console.error(data);
 };
@@ -20,13 +21,8 @@ let signUp = function(event) {
     processData: false,                     // Needed for FormData This is because item
     data: item                              // item is referancing the new object called 'item'.
   })
-  .done(function (data) {
-    successMessage(data);
-    env.envVars.user = data;
-  })
-  .fail(function (data) {
-    failMessage(data);
-  });
+  .done(uiSign.upSuccessful())
+  .fail(uiSign.upFail());
 };
 
 let signIn = function(event) {
@@ -40,10 +36,12 @@ let signIn = function(event) {
     data: item                              // item is referancing the new object called 'item'.
   })
   .done(function (data) {
-    uiSign.inSuccessful(data);
+    uiSign.inSuccessful();
+    logicSign.inSuccessful(data);
   })
   .fail(function (data) {
     failMessage(data);
+    uiSign.inFail();
   });
 };
 
@@ -56,12 +54,8 @@ let signOut = function(event) {
         Authorization: 'Token token=' + env.envVars.user.user.token,
       }
   })
-  .done(function (data) {
-    successMessage(data);
-  })
-  .fail(function (data) {
-    failMessage(data);
-  });
+  .done(uiSign.outSuccessful())
+  .fail(uiSign.outFail());
 };
 
 let chPass = function(event) {
@@ -77,12 +71,8 @@ let chPass = function(event) {
     processData: false,                     // Needed for FormData This is because item
     data: item                              // item is referancing the new object called 'item'.
   })
-  .done(function (data) {
-    successMessage(data);
-  })
-  .fail(function (data) {
-    failMessage(data);
-  });
+  .done(uiSign.inChangePwSuccessful())
+  .fail(uiSign.inChangePwFail());
 };
 
 module.exports = {

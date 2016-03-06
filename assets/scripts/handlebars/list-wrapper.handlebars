@@ -2,7 +2,7 @@
   <label for="sel-list">Select list:</label>
   <select class="form-control" id="sel-list">
     {{#lists.lists}}
-        <option>{{this.category}}</option>
+        <option value="{{this.id}}">{{this.category}}</option>
     {{/lists.lists}}
   </select>
 </div>
