@@ -48,11 +48,28 @@ let logOutFail = function () {
   $('.out-text').text('Sign out failed. Are you logged in?');
 };
 
+////----------CHANGE PASSWORD----------////
+let clearChangePwFields = function () {
+  $('#chInputPw').val('');
+  $('#chInputPwConf').val('');
+};
+
+let changePasswordSuccessful = function () {
+  $('#myModalChangePassword').modal('toggle');
+  clearChangePwFields();
+};
+
+let changePasswordFail = function () {
+  clearChangePwFields();
+};
+
 module.exports = {
-  inSuccessful: logInSuccessful,
-  inFail: logInFail,
-  upSuccessful: signUpSuccessful,
-  upFail: signUpFail,
-  outSuccessful: logOutSuccessful,
-  outFail:  logOutFail
+  inSuccessful:         logInSuccessful,
+  inFail:               logInFail,
+  upSuccessful:         signUpSuccessful,
+  upFail:               signUpFail,
+  outSuccessful:        logOutSuccessful,
+  outFail:              logOutFail,
+  inChangePwSuccessful: changePasswordSuccessful,
+  inChangePwFail:       changePasswordFail,
 };

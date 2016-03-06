@@ -71,12 +71,8 @@ let chPass = function(event) {
     processData: false,                     // Needed for FormData This is because item
     data: item                              // item is referancing the new object called 'item'.
   })
-  .done(function (data) {
-    successMessage(data);
-  })
-  .fail(function (data) {
-    failMessage(data);
-  });
+  .done(uiSign.inChangePwSuccessful())
+  .fail(uiSign.inChangePwFail());
 };
 
 module.exports = {
