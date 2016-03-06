@@ -34,7 +34,7 @@ let signUpSuccessful = function () {
   clearSignUpFields();
 };
 
-let signUpfail = function () {
+let signUpFail = function () {
   $('.reg-text').text('Sorry User is all ready taken.');
   clearSignUpFields();
 };
