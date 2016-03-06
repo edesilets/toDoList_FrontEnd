@@ -14,7 +14,6 @@ let init = function() {
   $('#logOut').on('submit', access.signOut);
   $('#changePw').on('submit', access.chPass);
   // Other functions below
-
 };
 
 $(document).ready(init);
