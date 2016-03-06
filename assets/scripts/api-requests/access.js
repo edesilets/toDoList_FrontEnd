@@ -21,13 +21,8 @@ let signUp = function(event) {
     processData: false,                     // Needed for FormData This is because item
     data: item                              // item is referancing the new object called 'item'.
   })
-  .done(function (data) {
-    successMessage(data);
-    env.envVars.user = data;
-  })
-  .fail(function (data) {
-    failMessage(data);
-  });
+  .done(uiSign.upSuccessful())
+  .fail(uiSign.upFail());
 };
 
 let signIn = function(event) {

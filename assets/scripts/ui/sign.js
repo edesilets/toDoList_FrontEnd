@@ -22,7 +22,26 @@ let logInFail = function () {
   clearLoginFields();
 };
 
+////----------SIGN UP----------////
+let clearSignUpFields = function () {
+  $('#reginputEmail').val('');
+  $('#reginputPassword').val('');
+  $('#regconinputPassword').val('');
+};
+
+let signUpSuccessful = function () {
+  $('#myModalRegister').modal('toggle');
+  clearSignUpFields();
+};
+
+let signUpfail = function () {
+  $('.reg-text').text('Sorry User is all ready taken.');
+  clearSignUpFields();
+};
+
 module.exports = {
   inSuccessful: logInSuccessful,
-  inFail: logInFail
+  inFail: logInFail,
+  upSuccessful: signUpSuccessful,
+  upFail: signUpfail
 };
