@@ -18,7 +18,7 @@ const env = require('../env.js');
 
 let getLists = function () {
   $.ajax({
-    url: "http://localhost:3000/lists",
+    url: env.envVars.url + 'lists',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + env.envVars.user.user.token,
@@ -27,7 +27,7 @@ let getLists = function () {
   }).done(function(lists) {
     let listsTemplate = require('../handlebars/list-wrapper.handlebars');
     $('.listwrapper').append(listsTemplate({lists}));
-    console.log(lists);
+    console.log('get the list', lists);
   });
 };
 
