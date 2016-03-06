@@ -39,9 +39,20 @@ let signUpFail = function () {
   clearSignUpFields();
 };
 
+////----------LOG OUT----------////
+let logOutSuccessful = function () {
+  $('#myModalLogOut').modal('toggle');
+};
+
+let logOutFail = function () {
+  $('.out-text').text('Sign out failed. Are you logged in?');
+};
+
 module.exports = {
   inSuccessful: logInSuccessful,
   inFail: logInFail,
   upSuccessful: signUpSuccessful,
-  upFail: signUpfail
+  upFail: signUpFail,
+  outSuccessful: logOutSuccessful,
+  outFail:  logOutFail
 };

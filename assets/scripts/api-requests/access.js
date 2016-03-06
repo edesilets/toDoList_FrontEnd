@@ -6,7 +6,7 @@ let logicSign = require('../logic/sign.js');
 
 const successMessage = function (data) {
   console.log(data);
-}
+};
 const failMessage = function (data) {
   console.error(data);
 };
@@ -54,12 +54,8 @@ let signOut = function(event) {
         Authorization: 'Token token=' + env.envVars.user.user.token,
       }
   })
-  .done(function (data) {
-    successMessage(data);
-  })
-  .fail(function (data) {
-    failMessage(data);
-  });
+  .done(uiSign.outSuccessful())
+  .fail(uiSign.outFail());
 };
 
 let chPass = function(event) {
