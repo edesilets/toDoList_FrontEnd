@@ -1,7 +1,7 @@
 'use strict';
 const env = require('../env.js');
 
-let getItems = function (id) {
+let getItems = function (id, onSuccess, onFailure) {
   $.ajax({
     url: env.envVars.url + "lists/" + id,
     method: 'GET',
@@ -9,11 +9,24 @@ let getItems = function (id) {
       Authorization: 'Token token='+ env.envVars.user.user.token,
     },
     dataType: 'json'
-  }).done(function(items) {
-    let itemsTemplate = require('../handlebars/items.handlebars');
-    $('.items').append(itemsTemplate({items}));
-    console.log('get the list', items);
-  });
+  })
+  .done(onSuccess)
+  .fail(onFailure);
+};
+
+let deleteItem = function (id, onSuccess, onFailure) {
+  $.ajax({
+    url: env.envVars.url + "items/" + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token='+ env.envVars.user.user.token,
+    },
+    dataType: 'json'
+  })
+  .done(onSuccess)
+  .fail(onFailure);
+  console.log('delete items AJAX just got hit.');
+  console.log('delete item id of', id);
 };
 
 let getLists = function () {
@@ -33,5 +46,6 @@ let getLists = function () {
 
 module.exports = {
   getLists,
-  getItems
+  getItems,
+  deleteItem
 };

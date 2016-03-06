@@ -1,6 +1,15 @@
-<option >Select a list</option>
 {{#items.list_item}}
   {{#items}}
-    <a href="#" class="list-group-item">{{this.todo}}</a>
+    {{!-- <a href="#" class="list-group-item">{{this.todo}}</a> --}}
+    <div class="list-group">
+      <a href="#" class="list-group-item clearfix">
+        {{this.todo}}
+        <span class="pull-right">
+          <button class="btn btn-xs btn-warning" data-task-id='{{this.id}}'>
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </span>
+      </a>
+    </div>
   {{/items}}
 {{/items.list_item}}
