@@ -25,11 +25,9 @@ let deleteItem = function (id, onSuccess, onFailure) {
   })
   .done(onSuccess)
   .fail(onFailure);
-  console.log('delete items AJAX just got hit.');
-  console.log('delete item id of', id);
 };
 
-let getLists = function () {
+let getLists = function (onSuccess, onFailure) {
   $.ajax({
     url: env.envVars.url + 'lists',
     method: 'GET',
@@ -37,11 +35,9 @@ let getLists = function () {
       Authorization: 'Token token=' + env.envVars.user.user.token,
     },
     dataType: 'json'
-  }).done(function(lists) {
-    let listsTemplate = require('../handlebars/lists.handlebars');
-    $('#sel-list').append(listsTemplate({lists}));
-    console.log('get the list', lists);
-  });
+  })
+  .done(onSuccess)
+  .fail(onFailure);
 };
 
 module.exports = {
