@@ -14,6 +14,7 @@ let clearLoginFields = function () {
 
 let logInSuccessful = function () {
   $('#myModal').modal('toggle');
+  $('.listwrapper').show();
   clearLoginFields();
 };
 

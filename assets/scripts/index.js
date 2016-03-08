@@ -9,6 +9,7 @@ let navbarTemplate = require('./handlebars/navbar.handlebars');
 
 let init = function() {
   // Main Functionaliy
+  $('.listwrapper').hide();
   $('.navbar').append(navbarTemplate());
   $('#register').on('submit', access.signUp);
   $('#logIn').on('submit', access.signIn);
