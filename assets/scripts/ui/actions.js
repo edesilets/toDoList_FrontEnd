@@ -13,14 +13,40 @@ let grabListId = function () {
 };
 
 let bindDelete = function () {
-  let singleElement = $(this).find('button.btn-warning')[0];
-  $(singleElement).on('click', function () {
-    let taskId = this.dataset.taskId;
-    //console.log($(this).data());    // The jquery Way
-    console.log(taskId);              // The DOM Way
+  let taskId = this.dataset.taskId;// The DOM Way
+  //console.log($(this).data());    // The jquery Way
+  let deleteButton = $(this).find('button.btn-warning')[0];
+  $(deleteButton).on('click', function () {
     api.deleteItem(taskId, function () {
       let listId = $('#sel-list').val();
       refreshItems(listId);
+    });
+  });
+
+  let editButton = $(this).find('button.btn-info')[0];
+  $(editButton).on('click', function () {
+    //console.log($(this).data());     // The jquery Way
+    console.log('edit Bind', taskId);  // The DOM Way
+    console.log($(this));
+
+    let listItem = $(this).parent('.pull-right');  //.parent('.list-group-item');
+    let inputField = $('<input name="item[todo]" type="text" placeholder="Press Enter To Submit" class="remove-field">');
+    $(listItem).append(inputField);
+    inputField.keypress(function (e) {
+      // this.value// $(this).val()
+      if (e.which == 13) {
+        this.remove('input.remove-field');
+        let data = $(this).val();
+        api.updateListItem(taskId, data, function () {
+          api.updateListItem(taskId, data, function () {
+            let listId = $('#sel-list').val();
+            refreshItems(listId);
+          });
+        }, function (d) {
+          console.log(d);
+        });
+        return false;    //<---- Add this line
+      }
     });
   });
 };
@@ -35,7 +61,7 @@ let refreshItems = function () {
 };
 
 let createListItem = function () {
-  $('#item > button').on( "click", function() {
+  $('#item > button').on( 'click', function() {
     let listId = $('#sel-list').val();
     let log = function (d) {
       console.log(d);
@@ -43,7 +69,6 @@ let createListItem = function () {
     api.addItemToList(listId, refreshItems);
   });
 };
-
 
 module.exports = {
   grabListId: grabListId,

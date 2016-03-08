@@ -60,10 +60,29 @@ let addItemToList = function (id, onSuccess, onFailure) {
   .fail(onFailure);
 };
 
+let updateListItem = function (id, dataIn, onSuccess, onFailure) {
+  event.preventDefault();                   // Stops page Reload
+  $.ajax({
+    url: env.envVars.url + 'items/' + id,
+    type: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + env.envVars.user.user.token,
+      contentType: "application/json"
+    },
+    data: {
+          item:  {
+            todo: dataIn
+            }
+        }
+  })
+  .done(onSuccess)
+  .fail(onFailure);
+};
 
 module.exports = {
   getLists,
   getItems,
   deleteItem,
-  addItemToList
+  addItemToList,
+  updateListItem
 };
