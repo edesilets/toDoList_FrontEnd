@@ -40,8 +40,30 @@ let getLists = function (onSuccess, onFailure) {
   .fail(onFailure);
 };
 
+let addItemToList = function (id, onSuccess, onFailure) {
+  event.preventDefault();                   // Stops page Reload
+  let item = new FormData(document.querySelector('#item'));    // object containing the FormData
+  console.log(item);
+  $.ajax({
+    url: env.envVars.url + 'lists/' + id + '/items',
+    // url: 'http://httpbin.org/post',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + env.envVars.user.user.token,
+    },
+    dataType: 'json',
+    contentType: false,                     // Needed for FormData
+    processData: false,                     // Needed for FormData This is because item
+    data: item                              // item is referancing the new object called 'item'.
+  })
+  .done(onSuccess)
+  .fail(onFailure);
+};
+
+
 module.exports = {
   getLists,
   getItems,
-  deleteItem
+  deleteItem,
+  addItemToList
 };

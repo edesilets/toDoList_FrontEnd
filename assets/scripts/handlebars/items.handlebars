@@ -2,14 +2,14 @@
   {{#items}}
     {{!-- <a href="#" class="list-group-item">{{this.todo}}</a> --}}
     <div class="list-group">
-      <a href="#" class="list-group-item clearfix">
+      <div class="list-group-item clearfix">
         {{this.todo}}
         <span class="pull-right">
           <button class="btn btn-xs btn-warning" data-task-id='{{this.id}}'>
             <span class="glyphicon glyphicon-trash"></span>
           </button>
         </span>
-      </a>
+      </div>
     </div>
   {{/items}}
 {{/items.list_item}}
