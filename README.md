@@ -1,14 +1,31 @@
 # To Do List Frontend
 
+## For testing
+
+| id |      User Name      | password |
+| -- | ------------------- | ---------|
+| 7  | jacob@statefarm.com | password |
+| 6  | frank@statefarm.com | password |
+| 5  | jess@statefarm.com  | password |
+
 ## What does it do?
+
+This is a To do list keeper. I keeps track of what needs to be completed.
 
 ## How it work?
 
+User logs in an can access preiously made lists and create, add, delete and update items.
+
 ## Construction apporach
+My method to construct this product was to complete my backend then work on the
+front end.
 
 ## Unsolved problems
 
-* bullets
+1. On Refresh the list gets placed in a "random order". (solution: have rails sort assending or descending)
+2. When one user logs out and doesn't refresh the page the next one to login has a broken page.
+3. buttons don't toggle to user flow options for login
+4. Why glyphicons render localy but not when deployed.
 
 #### User stories
 
