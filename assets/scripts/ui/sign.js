@@ -43,6 +43,7 @@ let signUpFail = function () {
 ////----------LOG OUT----------////
 let logOutSuccessful = function () {
   $('#myModalLogOut').modal('toggle');
+  $('.listwrapper').hide();
 };
 
 let logOutFail = function () {

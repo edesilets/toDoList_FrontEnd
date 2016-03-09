@@ -63,10 +63,10 @@ let refreshItems = function () {
 let createListItem = function () {
   $('#item > button').on( 'click', function() {
     let listId = $('#sel-list').val();
-    let log = function (d) {
-      console.log(d);
-    };
-    api.addItemToList(listId, refreshItems);
+    api.addItemToList(listId, function () {
+      refreshItems();
+      $('#item > .form-group > input').val('');
+    });
   });
 };
 

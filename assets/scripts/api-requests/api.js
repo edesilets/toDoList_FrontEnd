@@ -61,7 +61,6 @@ let addItemToList = function (id, onSuccess, onFailure) {
 };
 
 let updateListItem = function (id, dataIn, onSuccess, onFailure) {
-  event.preventDefault();                   // Stops page Reload
   $.ajax({
     url: env.envVars.url + 'items/' + id,
     type: 'PATCH',
