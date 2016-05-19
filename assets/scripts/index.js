@@ -1,6 +1,5 @@
 'use strict';
 
-require('./example.js');
 let access = require('./api-requests/access.js');
 let uiAction = require('./ui/actions.js');
 
